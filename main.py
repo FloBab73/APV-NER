@@ -1,16 +1,10 @@
-# This is a sample Python script.
+from ChatClient import extract_entities
+from DatabaseConnection import DatabaseConnection
+from FileReader import read_entries_from_file
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    entries = read_entries_from_file()
+    db = DatabaseConnection()
+    for entry in entries:
+        entity_query = extract_entities(entry.text)
+        db.insert_data(entity_query)

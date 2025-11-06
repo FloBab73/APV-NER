@@ -2,7 +2,8 @@ from openai import OpenAI
 
 
 def extract_entities(text):
-    api_key = "blub"
+    f = open("api-key.txt")
+    api_key = f.read()
 
     prompt = """Erstelle eine Query für neo4j mit Cypher, um folgende Daten einzufügen. Beachte dabei, dass die Entitäten potenziell schon vorhanden sind. Gebe nur die Query ohne weitern Text aus.
                 Nutze folgende Labels: Person, Event, Ort, Organisation
@@ -17,6 +18,8 @@ def extract_entities(text):
         input=message
     )
 
-    print(response)
+    text = response.output[0].content[0].text
+    print(text)
+    return text
 
 

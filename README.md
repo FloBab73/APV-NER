@@ -6,3 +6,9 @@
 - Grafische Oberfläche unter http://localhost:7474/browser/
 - Anmelden mit `neo4j` und `Marchivum`
 - Genaue [Anleitung](https://neo4j.com/docs/operations-manual/current/docker/introduction/) zum nachlesen
+
+## API Anbindung
+- Chronikstar-Datei in den Ordner legen
+- im Ordner eine Datei `api-key.txt` mit dem api key anlegen
+- DATEI NICHT PUSHEN!
+
