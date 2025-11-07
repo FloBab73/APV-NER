@@ -1,9 +1,9 @@
 def read_entries_from_file():
-    f = open("export_chronikstar-full.csv")
+    f = open("export_chronikstar_50_latest.csv")
     text = f.read()
     rows = text.split("\n")
     entries = []
-    for row in rows[:1]:
+    for row in rows:
         entries.append(Entry(row))
     return entries
 

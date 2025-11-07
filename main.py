@@ -7,4 +7,5 @@ if __name__ == '__main__':
     db = DatabaseConnection()
     for entry in entries:
         entity_query = extract_entities(entry.text)
+        entity_query = entity_query.replace("```", "").replace("\n", " ")
         db.insert_data(entity_query)
