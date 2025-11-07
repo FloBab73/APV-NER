@@ -10,7 +10,10 @@ class DatabaseConnection:
         self.driver = GraphDatabase.driver(URI, auth=AUTH)
 
     def insert_data(self, query):
-        self.driver.execute_query(query, database_=DATABASE)
+        try:
+            self.driver.execute_query(query, database_=DATABASE)
+        except Exception as e:
+            print(f"Fehler beim Auführen der Query: {e} ")
 
     def get_all_entities_with_label(self, label):
         records = self.query_data("MATCH (e:" + label + ") RETURN e")
